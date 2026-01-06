@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Poppins', cursive;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 30px;
+      padding: 30px 40px;
+      box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #ff69b4;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ff8fcf;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    button {
+      background: #ffe1f0;
+      border: none;
+      border-radius: 20px;
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 15px rgba(255, 105, 180, 0.25);
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 20px rgba(255, 105, 180, 0.35);
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 182, 213, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #fff;
+      border-radius: 30px;
+      padding: 30px;
+      max-width: 400px;
+      width: 85%;
+      text-align: center;
+      position: relative;
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      color: #ff69b4;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      color: #ff8fcf;
+      font-size: 18px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #ff69b4;
+    }
+
+    /* Cute decorations */
+    .decor {
+      position: absolute;
+      font-size: 26px;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .decor.one { top: -10px; left: 20px; }
+    .decor.two { top: 20px; right: 30px; animation-delay: 1s; }
+    .decor.three { bottom: 20px; left: 40px; animation-delay: 2s; }
+    .decor.four { bottom: -10px; right: 25px; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hi My Love 💕</h1>
+    <p>Click the cute buttons below ✨</p>
+
+    <div class="buttons">
+      <button onclick="showMessage('You are my favorite person ever 💖')">🎀 Hello Kitty</button>
+      <button onclick="showMessage('I love you more than words can explain 🌸')">🌷 Love Note</button>
+      <button onclick="showMessage('You make my world so much brighter ☀️')">🍓 Sweet</button>
+      <button onclick="showMessage('Forever & always, it’s you 💞')">💗 Forever</button>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">×</span>
+      <div class="decor one">🌸</div>
+      <div class="decor two">💐</div>
+      <div class="decor three">🌷</div>
+      <div class="decor four">🎀</div>
+      <h2>For You 💖</h2>
+      <p id="popup-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function showMessage(message) {
+      document.getElementById('popup-text').innerText = message;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
